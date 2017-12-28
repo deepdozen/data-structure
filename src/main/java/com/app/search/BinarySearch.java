@@ -12,7 +12,7 @@ public class BinarySearch<E extends Comparable<E>> implements ISearch<E>{
 		return search(element, array, 0, array.length - 1);
 	}
 
-	public int search(E element, E[] a, int low, int high) {
+	private int search(E element, E[] a, int low, int high) {
 		if (high >= 1 && low <= high) {
 			int half = low + (high - low) / 2;
 
