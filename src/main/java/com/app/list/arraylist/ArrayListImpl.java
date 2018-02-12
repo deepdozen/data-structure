@@ -13,7 +13,6 @@ public class ArrayListImpl<V> implements List<V>{
 	private int capacity;
 	private int size;
 	private long version;
-	
 	public ArrayListImpl(Class<V> c) {
 		this(c,10);
 	}

@@ -1,6 +1,14 @@
 package com.app.bag;
 
 import java.lang.reflect.Array;
+import java.util.Iterator;
+
+/*
+ * A bag is a collection where removing items is not supported—its purpose is to provide clients 
+ * with the ability to collect items and then to iterate through the collected items.
+ * https://algs4.cs.princeton.edu/13stacks/
+ * 
+ */
 
 public class BagImpl<V> implements Bag<V> {
 	private V[] data;
@@ -36,6 +44,29 @@ public class BagImpl<V> implements Bag<V> {
 		}
 		data[size]=item;
 		size++;
+	}
+
+	public Iterator<V> iterator() {
+		return new ArrayIterator(data);
+	}
+	
+	private class ArrayIterator implements Iterator<V>{
+		private int current;
+		private V[] data;
+		
+		public ArrayIterator(V[] data) {
+			this.data = data;
+			this.current = 0;
+		}
+
+		public boolean hasNext() {
+			return (current < data.length);
+		}
+
+		public V next() {
+			return data[current++];
+		}
+		
 	}
 
 }

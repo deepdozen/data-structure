@@ -1,6 +1,6 @@
 package com.app.bag;
 
-public interface Bag<V> {
+public interface Bag<V> extends Iterable<V>{
 
 	public int size();
 	
